@@ -181,7 +181,7 @@ def main():
                           run_in_background=True)
     while(socket_opened==False):    # wait till socket open & then subscribe
         pass
-    #print("yaha tak to aagey hum")
+    
 
     #subscribe to feeds
     alice.subscribe(tuple_list, LiveFeedType.MARKET_DATA)
@@ -211,11 +211,11 @@ def main():
            sleep(0.5)
            #print(stack)
             
-    print("00ye pe aara")
+    
     print(type(time_now))
     print(type(breakout_time))
     while(time_now==breakout_time and count<len(stock_list)):
-        print("ye pe kaiko nahi aara")
+        
         for key in trade_dict:
             print("key",type(key),key)
             print("token",type(token),token)
@@ -226,7 +226,7 @@ def main():
                 trade_dict[key]['ltp']=ltp
                 trade_dict[key]['added']='added'
                 count=count+1
-                print("Hi")
+               
     while( time_now <= time_threshold and trade_count < (len(stock_list)) ):
         for key in trade_dict:
          if(len(stack)>0):
