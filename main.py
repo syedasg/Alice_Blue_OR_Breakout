@@ -243,16 +243,17 @@ def main():
                         low=trade_dict[key]['low']
                         entry_price=low-(low*0.001)
                         entry_price=(round(entry_price*20.0)/20.0)
+                        tup=alice.get_instrument_by_token('NSE', keyy)
                         #mod_sl=stop_loss+(stop_loss*0.001)
                         #mod_sl=(round(mod_sl*20.0)/20.0)
                         #Entry Price Calculation
                         
-                        for tup in tuple_list:
+                        #for tup in tuple_list:
                              
-                             if (tup[1]==int(key)):
+                            # if (tup[1]==int(key)):
                                 #inst_tup=tup
-                                print("INSTRUMENT TUPLE TYPE",type(tup),tup[2],"==",key,tup[1],"==",key)
-                                alice.place_order(transaction_type = TransactionType.Sell,
+                               # print("INSTRUMENT TUPLE TYPE",type(tup),tup[2],"==",key,tup[1],"==",key)
+                        alice.place_order(transaction_type = TransactionType.Sell,
                                                  instrument = tup,
                                                  quantity = 1,
                                                  order_type = OrderType.StopLossMarket,
@@ -265,10 +266,10 @@ def main():
                                                  is_amo = False)
                                 #sell_signal(tup)
                                 #sell_signal(tup, trade_dict[key]['low'],trade_dict[key]['high'])
-                                sleep(0.025)
-                                trade_dict[key]['status']='sold'
-                                trade_count=trade_count+1
-                                print("sell complted",key)
+                        sleep(0.025)
+                        trade_dict[key]['status']='sold'
+                        trade_count=trade_count+1
+                        print("sell complted",key)
                                 
                 elif ( trade_dict[key]['ltp'] >= trade_dict[key]['high'] and 'bought' not in trade_dict[key].values()) :
                             print("buy triggered for : ",key,trade_dict[key]['symbol'])
